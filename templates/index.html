@@ -1,0 +1,194 @@
+git<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>Vender Vino</title>
+
+    <meta property="og:title" content="Un Buen Vino" />
+    <meta property="og:description" content="Vino contigo siempre" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Black Han Sans', sans-serif;
+        }
+        .item-img {
+            width: 500px;
+            height: 600px;
+            margin-top: 20px;
+            margin: auto;
+            background-image: url("data:image/jpeg;base64,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");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+
+        .item-desc {
+            width: 500px;
+            margin: 20px auto 20px auto;
+        }
+        .table {
+            width : 500px;
+            margin: auto;
+        }
+        .item-order {
+            width: 500px;
+            margin: auto;
+        }
+
+
+        .btn-order {
+            margin: 20px auto 20px auto;
+            width: 100px;
+            display: block;
+
+        }
+        .wrap{
+            width: 500px;
+            margin:auto;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            listing();
+        });
+        function order() {
+            let name = $('#name').val();
+            let count = $('#count').val();
+            let address = $('#address').val();
+            let phone = $('#phone').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {
+                    name_give: name,
+                    count_give: count,
+                    address_give: address,
+                    phone_give: phone
+                },
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
+        }
+
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "/order",
+                data: {},
+                success: function (response) {
+                    let orders = response['all_orders'];
+                    for (let i = 0; i < orders.length; i++) {
+                        let name = orders[i]['name'];
+                        let count = orders[i]['count'];
+                        let address = orders[i]['address'];
+                        let phone = orders[i]['phone'];
+
+                        let temp_html = `<tr>
+                                          <th scope="row">${name}</th>
+                                          <td>${count}</td>
+                                          <td>${address}</td>
+                                          <td>${phone}</td>
+                                      </tr>`
+                        $('#posting-box').append(temp_html)
+                    }
+                }
+
+            })
+        }
+
+
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="item-img"></div>
+    <div class="item-desc">
+        <h1>오뽀르또 와인을 팔아요!❣️ </h1>
+        <span class="price">가격: 18,000원/병</span>
+        <p>이 와인은 한강에서 마시면 정말 행복해지는 와인이랍니다. 특히 사랑하는 사람과 함께 일 때, 더욱 시너지를 내죠! 기분이 좋아지고 잊지 못할 순간이 되실 거에요!</h5>
+</p>
+    </div>
+    <div class="item-order">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+            </div>
+            <input type="text" class="form-control" id="name" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+            </div>
+            <select class="custom-select" id="count">
+                <option selected>수량을 선택하세요</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+            </div>
+            <input type="text" class="form-control" id="address" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+            </div>
+            <input type="text" class="form-control" id="phone" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button type="button" onclick="order()" class="btn btn-primary btn-order">주문하기!</button>
+    </div>
+</div>
+
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <th scope="col">이름</th>
+      <th scope="col">수량</th>
+      <th scope="col">주소</th>
+      <th scope="col">전화번호</th>
+    </tr>
+  </thead>
+  <tbody id="posting-box">
+  </tbody>
+</table>
+</body>
+
+</html>
